@@ -1,0 +1,38 @@
+- model: guessing_game.models.Token
+  records:
+    - token: 123abc
+    - token: 234bcd
+    - token: 345cde
+      guessing_enabled: False
+    - token: 456def
+
+- model: guessing_game.models.Guess
+  records:
+    - id: 1
+      token: 123abc
+      guess: 1
+      user: a
+    - id: 2
+      token: 123abc
+      guess: 2
+      user: b
+    - id: 3
+      token: 123abc
+      guess: 4
+      user: c
+    - id: 4
+      token: 123abc
+      guess: 4
+      user: d
+    - id: 5
+      token: 123abc
+      guess: 5
+      user: e
+    - id: 6
+      token: 234bcd
+      guess: 6
+      user: e
+    - id: 7
+      token: 345cde
+      guess: 1
+      user: e
