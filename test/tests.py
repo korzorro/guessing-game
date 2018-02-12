@@ -87,7 +87,7 @@ class GuessingGameTestCase(TestCase, FixturesMixin):
 
         resp = self.client.get(url_for('guess'), query_string=guess_data)
         message = resp.get_data(as_text=True)
-        assert message == ''
+        assert message == ' '
         assert Guess.query.filter_by(
             user=guess_data['user'], token=guess_data['token']).count() == 1
 
@@ -100,7 +100,7 @@ class GuessingGameTestCase(TestCase, FixturesMixin):
 
         resp = self.client.get(url_for('guess'), query_string=guess_data)
         message = resp.get_data(as_text=True)
-        assert message == ''
+        assert message == ' '
         assert Guess.query.filter_by(
             user=guess_data['user'], token=guess_data['token']).count() == 0
 
