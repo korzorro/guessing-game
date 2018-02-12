@@ -54,8 +54,9 @@ class GuessingGameTestCase(TestCase, FixturesMixin):
 
     def test_generate_token(self):
         def get_token_from_message(message):
-            start = len('Your token is ')
-            end = message.find('.', start)
+            start_str = 'Your token is '
+            start = message.find(start_str) + len(start_str)
+            end = message.find('\n', start)
             token_string = message[start:end]
             return token_string
 

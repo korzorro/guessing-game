@@ -19,7 +19,19 @@ tie_format = (
     'We have a {count} way tie with a guess of {guess}! The winners are '
     '{winner_list_str}.'
 )
-token_generated_format = 'Your token is {token}.\nPlace this token in the url.'
+token_generated_format = (
+    '<pre>Your token is {token}\nPlace this token in the url. '
+    'Nightbot example below...\n\n'
+    '!guess $(urlfetch http://{base_url}{guess_route}?token={token}'
+    'user=$(user)&guess=$(1))\n\n'
+    '!newgame $(urlfetch http://{base_url}{new_route}?token={token})\n\n'
+    '!disableguessing $(urlfetch http://{base_url}{disable_guessing_route}?'
+    'token={token})\n\n'
+    '!enableguessing $(urlfetch http://{base_url}{enable_guessing_route}?'
+    'token={token})\n\n'
+    '!results $(urlfetch http://{base_url}{results_route}?token={token}&'
+    'answer=$(1))\n<pre>'
+)
 invalid_token_format = (
     'Your token is missing or invalid. Obtain a valid token at {url}'
 )

@@ -57,7 +57,15 @@ def generate_token():
     token = Token(token=token_string)
     token.add_to_db()
 
-    return messages.token_generated_format.format(token=token.token)
+    return messages.token_generated_format.format(
+        token=token.token,
+        base_url=app.config['BASE_URL'],
+        guess_route=url_for('guess'),
+        new_route=url_for('new_game'),
+        disable_guessing_route=url_for('disable_guessing'),
+        enable_guessing_route=url_for('enable_guessing'),
+        results_route=url_for('results')
+    )
 
 
 @app.route('/guess')
